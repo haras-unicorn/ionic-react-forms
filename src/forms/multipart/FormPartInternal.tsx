@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactElementWithSameProps } from '../../react/types';
+import { ReactElementWithSameProps } from '../adapters/react/types';
 import { useFormContext } from 'react-hook-form';
 
 import FormPart from './FormPart';

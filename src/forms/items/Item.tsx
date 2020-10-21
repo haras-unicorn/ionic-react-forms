@@ -1,13 +1,12 @@
+import * as R from 'ramda';
+
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 
-import { IonInput, IonItem } from '@ionic/react';
-
-
-import o from '../../typescript/typedObject';
-
 import ErrorText, { isErrorText } from './ErrorText';
 import ItemLabel from './ItemLabel';
+
+import { IonInput, IonItem } from '@ionic/react';
 
 
 interface IonicInputInjectionProps
@@ -104,7 +103,7 @@ const Item: React.FC<Props> = (props: Props): React.ReactElement =>
             <>
                 <IonItem
                         {
-                            ...o.omit(props, 'name', 'rules', 'children')
+                            ...R.omit(['name', 'rules', 'children'], props)
                         }
                         style={{
                             ...props.style,

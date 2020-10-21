@@ -40,35 +40,3 @@ export const FormPart = ImportedFormPart;
 export const FormPartSwitch = ImportedFormPartSwitch;
 // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
 export const MultipartForm = ImportedMultipartForm;
-
-namespace AltiBiz.Forms
-{
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const SubmitButton = ImportedSubmitButton;
-
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const ItemLabel = ImportedItemLabel;
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const ErrorText = ImportedErrorText;
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const Item = ImportedItem;
-
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const ImagePicker = ImportedImagePicker;
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const ImageItem = ImportedImageItem;
-
-
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const Form = ImportedForm;
-
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const FormPart = ImportedFormPart;
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const FormPartSwitch = ImportedFormPartSwitch;
-    // noinspection JSUnusedGlobalSymbols, LocalVariableNamingConventionJS
-    export const MultipartForm = ImportedMultipartForm;
-}
-
-// noinspection JSUnusedGlobalSymbols
-export default AltiBiz.Forms;

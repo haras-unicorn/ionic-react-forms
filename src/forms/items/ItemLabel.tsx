@@ -1,6 +1,9 @@
+import * as R from 'ramda';
+
 import React from 'react';
+
 import { IonLabel } from '@ionic/react';
-import o from '../../typescript/typedObject';
+
 
 type Props =
         {
@@ -10,7 +13,7 @@ type Props =
 const ItemLabel: React.FC<Props> = (props: React.PropsWithChildren<Props>) =>
 {
     return (
-            <IonLabel {...o.omit(props, 'children')}>
+            <IonLabel {...R.omit(['children'], props)}>
                 {props.children}
             </IonLabel>
     );

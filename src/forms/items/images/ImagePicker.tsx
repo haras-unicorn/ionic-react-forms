@@ -1,6 +1,6 @@
+import * as R from 'ramda';
 import React from 'react';
 import { IonButton } from '@ionic/react';
-import o from '../../../typescript/typedObject';
 
 type Props =
         {
@@ -11,7 +11,7 @@ type Props =
 const ImagePicker: React.FC<Props> = (props: React.PropsWithChildren<Props>) =>
 {
     return (
-            <IonButton {...o.omit(props, 'children')} type="button">
+            <IonButton {...R.omit(['children'], props)} type="button">
                 {props.children}
             </IonButton>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactElementWithSameProps } from '../../react/types';
+import { ReactElementWithSameProps } from '../adapters/react/types';
 import { IonIcon, IonTabButton, IonText } from '@ionic/react';
 
 import FormPartSwitch from './FormPartSwitch';

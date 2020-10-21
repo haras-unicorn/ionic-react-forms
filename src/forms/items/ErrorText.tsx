@@ -1,8 +1,11 @@
+import * as R from 'ramda';
+import { entries } from '../adapters/typescript/entry';
+
 import React from 'react';
-import { IonText } from '@ionic/react';
 import { useFormContext } from 'react-hook-form';
-import o from '../../typescript/typedObject';
-import q from '../../typescript/queryable';
+
+import { IonText } from '@ionic/react';
+
 
 type Props =
         {
@@ -30,11 +33,10 @@ const ErrorText: React.FC<Props> = (props: React.PropsWithChildren<Props>) =>
                    </IonText> :
                    null
            ) :
-           <IonText color="danger" {...o.omit(props, 'itemName', 'children')}>
+           <IonText color="danger" {...R.omit(['itemName', 'children'], props)}>
                {
-                   q(o.entries(formContext.errors))
-                           .map(error => <p key={error[0]}>{error[1].message}</p>)
-                           .toArray()
+                   R.map((error: R.KeyValuePair<any, any>) => <p key={error[0]}>{error[1].message}</p>,
+                           entries(formContext.errors))
                }
                {props.children}
            </IonText>;

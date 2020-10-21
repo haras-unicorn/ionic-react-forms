@@ -1,11 +1,11 @@
 import React from 'react';
-import { ReactElementWithSameProps } from '../../react/types';
+import { ReactElementWithSameProps } from '../adapters/react/types';
 
 import { IonCol, IonContent, IonFooter, IonGrid, IonRow } from '@ionic/react';
 import { document } from 'ionicons/icons';
 
 import { FormProvider, SubmitHandler, useForm, UseFormOptions } from 'react-hook-form';
-import { FieldValues, UnpackNestedValue } from 'react-hook-form/dist/types/form';
+import { UnpackNestedValue } from 'react-hook-form/dist/types/form';
 
 
 import SubmitButton from '../SubmitButton';
@@ -25,7 +25,7 @@ type Parts =
             ...ReactElementWithSameProps<typeof FormPart>[]
         ];
 
-interface Props<TFields extends FieldValues>
+interface Props<TFields extends Record<string, any>>
 {
     formOptions?: Omit<UseFormOptions<TFields>, 'mode'>
     onSubmit: SubmitHandler<TFields>
@@ -113,7 +113,7 @@ const renderSwitch = (
                 registerTogglePart={registerTogglePart}/>;
 
 
-const MultipartForm = <TFields extends FieldValues>(props: Props<TFields>) =>
+const MultipartForm = <TFields extends Record<string, any>>(props: Props<TFields>) =>
 {
     const propsPreviewPart = props.children.preview?.part;
     const propsParts = props.children.parts;

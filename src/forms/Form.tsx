@@ -2,21 +2,20 @@ import React from 'react';
 import { IonItemGroup } from '@ionic/react';
 
 import { FormProvider, SubmitHandler, useForm, UseFormOptions } from 'react-hook-form';
-import { FieldValues } from 'react-hook-form/dist/types/form';
 
 import SubmitButton from './SubmitButton';
 
 
 // TODO: add group validation
 
-interface Props<TFields extends FieldValues>
+interface Props<TFields extends Record<string, any>>
 {
     formOptions: Omit<UseFormOptions<TFields>, 'mode'>
     onSubmit: SubmitHandler<TFields>
     submitButton: React.ReactComponentElement<typeof SubmitButton>
 }
 
-const Form = <TFields extends FieldValues>(
+const Form = <TFields extends Record<string, any>>(
         props: React.PropsWithChildren<Props<TFields>>): React.ReactElement =>
 {
     const formContext = useForm(

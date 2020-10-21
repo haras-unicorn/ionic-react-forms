@@ -1,14 +1,13 @@
 import React, { useMemo } from 'react';
+import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { CameraPhoto, CameraResultType, Plugins } from '@capacitor/core';
 
 import { IonButton, IonIcon } from '@ionic/react';
 import { remove } from 'ionicons/icons';
-import { CameraPhoto, CameraResultType, Plugins } from '@capacitor/core';
-
-import { Controller, useFormContext, useWatch } from 'react-hook-form';
 
 import ErrorText, { isErrorText } from '../ErrorText';
 import ImagePicker from './ImagePicker';
-import Image from '../../../../components/views/images/Image';
+import Image from '../../views/images/Image';
 
 
 type IonButtonOnIonBlurEvent =
@@ -141,15 +140,15 @@ const ImageItem: React.FC<Props> = (props: Props): React.ReactElement =>
     });
     const propsRenderImage = props.renderImage;
     const imageRender =
-                    image?.dataUrl ?
-                    (
-                            propsRenderImage ?
-                            propsRenderImage(image.dataUrl, imageRemoverRender) :
-                            <Image dataUrl={image.dataUrl}>
-                                {imageRemoverRender}
-                            </Image>
-                    ) :
-                    null;
+            image?.dataUrl ?
+            (
+                    propsRenderImage ?
+                    propsRenderImage(image.dataUrl, imageRemoverRender) :
+                    <Image dataUrl={image.dataUrl}>
+                        {imageRemoverRender}
+                    </Image>
+            ) :
+            null;
 
     const propsError = props.children?.errorText;
     const errorTextRender = useMemo(
@@ -178,12 +177,12 @@ const ImageItem: React.FC<Props> = (props: Props): React.ReactElement =>
 
     return (
             <>
-            <div className="ion-text-center">
-                {controllerRender}
-                {imageRender}
-            </div>
-            {errorTextRender}
-            {props.children?.other}
+                <div className="ion-text-center">
+                    {controllerRender}
+                    {imageRender}
+                </div>
+                {errorTextRender}
+                {props.children?.other}
             </>
     );
 };
