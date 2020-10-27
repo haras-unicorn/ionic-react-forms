@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactElementWithSameProps } from '../adapters/react/types';
+import { ReactElementWithSameProps } from '../../react/types';
 import { IonIcon, IonTabButton, IonText } from '@ionic/react';
 
 import FormPartSwitch from './FormPartSwitch';
@@ -34,7 +34,7 @@ const FormPartSwitchInternal: React.FC<Props> = (props: Props) =>
             [propsRegisterTogglePart]);
 
 
-    // I'm not expecting the user to change the icon quicker than he opens this part, so no memo.
+    // I'm not expecting the localUser to change the icon quicker than he opens this part, so no memo.
     const propsIcon = props.user.props.children?.icon;
     const iconRender =
             propsIcon ?
@@ -49,7 +49,7 @@ const FormPartSwitchInternal: React.FC<Props> = (props: Props) =>
             ) :
             null;
 
-    // I'm not expecting the user to change the label quicker than he opens this part, so no memo.
+    // I'm not expecting the localUser to change the label quicker than he opens this part, so no memo.
     const propsLabel = props.user.props?.children?.label;
     const labelRender =
             propsLabel ?

@@ -1,11 +1,11 @@
 import React from 'react';
-import { ReactElementWithSameProps } from '../adapters/react/types';
+import { ReactElementWithSameProps } from '../../react/types';
 
 import { IonCol, IonContent, IonFooter, IonGrid, IonRow } from '@ionic/react';
 import { document } from 'ionicons/icons';
 
 import { FormProvider, SubmitHandler, useForm, UseFormOptions } from 'react-hook-form';
-import { UnpackNestedValue } from 'react-hook-form/dist/types/form';
+import { FieldValues, UnpackNestedValue } from 'react-hook-form/dist/types/form';
 
 
 import SubmitButton from '../SubmitButton';
@@ -25,7 +25,7 @@ type Parts =
             ...ReactElementWithSameProps<typeof FormPart>[]
         ];
 
-interface Props<TFields extends Record<string, any>>
+interface Props<TFields extends FieldValues>
 {
     formOptions?: Omit<UseFormOptions<TFields>, 'mode'>
     onSubmit: SubmitHandler<TFields>
@@ -42,6 +42,8 @@ interface Props<TFields extends Record<string, any>>
                         }
 
                 submitButton?: React.ReactComponentElement<typeof SubmitButton>
+
+                report?: React.ReactNode
             }
 }
 
@@ -113,7 +115,7 @@ const renderSwitch = (
                 registerTogglePart={registerTogglePart}/>;
 
 
-const MultipartForm = <TFields extends Record<string, any>>(props: Props<TFields>) =>
+const MultipartForm = <TFields extends FieldValues>(props: Props<TFields>) =>
 {
     const propsPreviewPart = props.children.preview?.part;
     const propsParts = props.children.parts;
@@ -195,9 +197,10 @@ const MultipartForm = <TFields extends Record<string, any>>(props: Props<TFields
                             <ErrorText/>,
                             <div className="ion-text-center">
                                 {submitButtonRender}
-                            </div>),
+                            </div>,
+                            props.children.report),
             // Lots of dependencies, but it could be a heavyweight component with pictures, so its worth memoizing.
-            // All of these dependencies change only if the parts change and I don't expect of the user to
+            // All of these dependencies change only if the parts change and I don't expect of the localUser to
             // change them dinamically often.
             [togglePartMap, previewPart, propsRenderOnOpen, submitButtonRender, openPart]);
     const previewPartSwitchRender = React.useMemo(

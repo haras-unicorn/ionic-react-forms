@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { entries } from '../adapters/typescript/entry';
+import { entries } from '../../typescript/entry';
 
 import React from 'react';
 import { useFormContext } from 'react-hook-form';

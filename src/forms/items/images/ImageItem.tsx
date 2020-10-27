@@ -7,7 +7,7 @@ import { remove } from 'ionicons/icons';
 
 import ErrorText, { isErrorText } from '../ErrorText';
 import ImagePicker from './ImagePicker';
-import Image from '../../views/images/Image';
+import Image from '../../../../components/views/images/Image';
 
 
 type IonButtonOnIonBlurEvent =
